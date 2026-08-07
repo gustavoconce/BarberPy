@@ -15,6 +15,8 @@ class Unidade(models.Model):
 
 # servicos
 class Servico(models.Model):
+
+    unidade = models.ForeignKey(Unidade, on_delete=models.CASCADE, related_name="servicos")
     nome = models.CharField(max_length=100)
     descricao = models.TextField(blank=True)
     preco = models.DecimalField(max_digits=8, decimal_places=2)

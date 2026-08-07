@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Horários
+{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Escolha um horário
+</h1>
+
+<h4>
+    {{ barbeiro.first_name }} {{ barbeiro.last_name }}
+</h4>
+
+<p class="text-secondary">
+    Serviço: {{ servico.nome }}
+</p>
+
+<div class="row">
+
+    {% for horario in horarios %}
+
+        <div class="col-md-3 mb-3">
+
+            <div class="card">
+
+                <div class="card-body text-center">
+
+                    <h5>
+
+                        {{ horario|time:"H:i" }}
+
+                    </h5>
+
+                    <a
+                        href="#"
+                        class="btn btn-dark">
+
+                        Selecionar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

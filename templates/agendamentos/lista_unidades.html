@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Unidades
+{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Escolha uma unidade
+</h1>
+
+<div class="row">
+
+    {% for unidade in unidades %}
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card shadow-sm">
+
+                <div class="card-body">
+
+                    <h4>
+
+                        {{ unidade.nome }}
+
+                    </h4>
+
+                    <p>
+
+                        {{ unidade.endereco }}
+
+                    </p>
+
+                    <p>
+
+                        {{ unidade.telefone }}
+
+                    </p>
+
+                    <a
+                        href="{% url 'lista_servicos' unidade.id %}"
+                        class="btn btn-dark">
+
+                        Selecionar
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <p>
+
+            Nenhuma unidade cadastrada.
+
+        </p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Escolha um Barbeiro
+{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">
+    Escolha um barbeiro
+</h1>
+
+<h4 class="text-secondary mb-4">
+    Serviço: {{ servico.nome }}
+</h4>
+
+<div class="row">
+
+    {% for barbeiro in barbeiros %}
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card shadow-sm">
+
+                <div class="card-body text-center">
+
+                    {% if barbeiro.foto %}
+                        <img
+                            src="{{ barbeiro.foto.url }}"
+                            class="rounded-circle mb-3"
+                            width="120"
+                            height="120">
+                    {% endif %}
+
+                    <h4>
+
+                        {{ barbeiro.first_name }}
+
+                        {{ barbeiro.last_name }}
+
+                    </h4>
+
+                    <p>
+
+                        {{ barbeiro.email }}
+
+                    </p>
+
+                    <a
+                        href="{% url 'escolher_data' barbeiro.id servico.id %}">
+
+                        Escolher
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <div class="alert alert-warning">
+
+            Nenhum barbeiro cadastrado.
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

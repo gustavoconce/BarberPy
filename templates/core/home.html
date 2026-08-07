@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %}
+BarberPy
+{% endblock %}
+
+{% block content %}
+
+<div class="py-5 text-center">
+
+    <h1 class="display-4">
+        BarberPy
+    </h1>
+
+    <p class="lead">
+        Agende seu horário de forma rápida e prática.
+    </p>
+
+    <hr class="my-4">
+
+    {% if user.is_authenticated %}
+
+        <a href="#" class="btn btn-dark btn-lg">
+            Agendar Horário
+        </a>
+
+    {% else %}
+
+        <a href="{% url 'login' %}" class="btn btn-dark btn-lg">
+            Entrar para Agendar
+        </a>
+
+    {% endif %}
+
+</div>
+
+<div class="row mt-5">
+
+    <div class="col-md-4">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h4>Corte</h4>
+
+                <p>
+                    Cortes modernos com barbeiros especializados.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h4>Barba</h4>
+
+                <p>
+                    Modelagem completa da barba.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="col-md-4">
+
+        <div class="card shadow-sm">
+
+            <div class="card-body">
+
+                <h4>Corte + Barba</h4>
+
+                <p>
+                    Pacote completo com preço especial.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

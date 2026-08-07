@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Serviços
+{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4">
+
+    {{ unidade.nome }}
+
+</h1>
+
+<div class="row">
+
+    {% for servico in servicos %}
+
+        <div class="col-md-4 mb-4">
+
+            <div class="card shadow-sm">
+
+                <div class="card-body">
+
+                    <h4>
+
+                        {{ servico.nome }}
+
+                    </h4>
+
+                    <p>
+
+                        {{ servico.descricao }}
+
+                    </p>
+
+                    <h5>
+
+                        R$ {{ servico.preco }}
+
+                    </h5>
+
+                    <a
+                        href="{% url 'lista_barbeiros' servico.id %}"
+                        class="btn btn-dark">
+
+                        Escolher
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    {% empty %}
+
+        <p>
+
+            Nenhum serviço disponível.
+
+        </p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
